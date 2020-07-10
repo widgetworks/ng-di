@@ -1,8 +1,16 @@
 
 beforeEach(function (){
-  this.addMatchers({
-    toBeFunction: function (){
-      return Object.prototype.toString.call(this.actual)==='[object Function]';
-    }
+  jasmine.addMatchers({
+    toBeFunction: function toBeFunctionFactory(util, customEqualityTesters){
+      const matcher = {
+        compare: function(actual){
+          const result = {
+            pass: Object.prototype.toString.call(actual)==='[object Function]',
+          };
+          return result;
+        }
+      };
+      return matcher;
+    },
   });
 });

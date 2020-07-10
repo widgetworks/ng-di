@@ -34,20 +34,25 @@
     "node": ">= 0.8.0"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "karma start --single-run=true ./tools/karma.conf.js",
+    "xtest": "grunt test"
   },
   "devDependencies": {
     "grunt": "~1.2.1",
-    "grunt-contrib-compress": "1.6.0",
     "grunt-contrib-clean": "2.0.0",
+    "grunt-contrib-compress": "1.6.0",
     "grunt-contrib-concat": "~1.0.1",
+    "grunt-contrib-copy": "~1.0.0",
     "grunt-contrib-uglify": "~4.0.1",
-    "karma": "~5.1.0",
-    "shelljs": "0.1.2",
-    "grunt-karma": "~4.0.0",
     "grunt-jasmine-node": "0.3.1",
+    "grunt-karma": "~4.0.0",
+    "jasmine-core": "^3.5.0",
     "jasmine-node": "3.0.0",
-    "grunt-contrib-copy": "~1.0.0"
+    "jasmine-reporters": "^2.3.2",
+    "karma": "~5.1.0",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-jasmine": "^3.3.1",
+    "shelljs": "0.1.2"
   },
   "disabledDevDependencies": {
     "grunt-jasmine-node": "https://github.com/jmendiara/grunt-jasmine-node/tarball/master"

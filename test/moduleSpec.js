@@ -36,13 +36,13 @@ describe('module loader', function() {
 
     expect(myModule.requires).toEqual(['other']);
     expect(myModule._invokeQueue).toEqual([
-      ['$provide', 'constant', ['abc', 123] ],
-      ['$injector', 'invoke', ['config'] ],
-      ['$provide', 'provider', ['sk', 'sv'] ],
-      ['$provide', 'factory', ['fk', 'fv'] ],
-      ['$provide', 'service', ['a', 'aa'] ],
-      ['$provide', 'value', ['k', 'v'] ],
-      ['$injector', 'invoke', ['init2'] ]
+      ['$provide', 'constant', jasmine.objectContaining(['abc', 123]) ],
+      ['$injector', 'invoke', jasmine.objectContaining(['config']) ],
+      ['$provide', 'provider', jasmine.objectContaining(['sk', 'sv']) ],
+      ['$provide', 'factory', jasmine.objectContaining(['fk', 'fv']) ],
+      ['$provide', 'service', jasmine.objectContaining(['a', 'aa']) ],
+      ['$provide', 'value', jasmine.objectContaining(['k', 'v']) ],
+      ['$injector', 'invoke', jasmine.objectContaining(['init2']) ]
     ]);
     expect(myModule._runBlocks).toEqual(['runBlock']);
   });
@@ -56,6 +56,6 @@ describe('module loader', function() {
   it('should complain of no module', function() {
     expect(function() {
       di.module('dontExist');
-    }).toThrow('No module: dontExist');
+    }).toThrowError('No module: dontExist');
   });
 });

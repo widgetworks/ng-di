@@ -28,7 +28,8 @@ module.exports = function(grunt) {
       projectRoot: "./test",
       requirejs: false,
       forceExit: true,
-      useHelpers: true
+      useHelpers: true,
+      failFast: true,
     },
 
     karma: {
