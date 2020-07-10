@@ -34,7 +34,7 @@ module.exports = function(config){
   
     client: {
       jasmine: {
-        failFast: true,
+        failFast: false,// test would finish with error when a first fail occurs.
       },
     },
     
@@ -49,8 +49,6 @@ module.exports = function(config){
       suppressPassed: true,      // do not print information about passed tests
       suppressSkipped: false,      // do not print information about skipped tests
       showSpecTiming: false,      // print the time elapsed for each spec
-      // failFast: false              // test would finish with error when a first fail occurs.
-      failFast: true              // test would finish with error when a first fail occurs.
     },
     
     

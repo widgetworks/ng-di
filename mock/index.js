@@ -1,3 +1,6 @@
+/*
+angular.js 1.6.10
+*/
 const GLOBAL = typeof globalThis !== 'undefined' ? globalThis :
   typeof global !== 'undefined' ? global :
   typeof window !== 'window' ? window :
