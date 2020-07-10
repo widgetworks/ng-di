@@ -34,6 +34,7 @@
     "node": ">= 0.8.0"
   },
   "scripts": {
+    "build": "grunt build",
     "test": "karma start --single-run=true ./tools/karma.conf.js",
     "xtest": "grunt test"
   },

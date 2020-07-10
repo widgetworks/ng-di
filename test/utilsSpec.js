@@ -1,5 +1,9 @@
 'use strict';
-var utils = require('../lib/utils');
+
+(function(){
+
+const utils = require('../lib/utils');
+const nextUid = utils.nextUid;
 
 describe('utils', function() {
 
@@ -65,16 +69,14 @@ describe('utils', function() {
   });
 
 
-  describe('nextUid', function() {
-    var nextUid = utils.nextUid;
-
+  describe('nextUid()', function() {
     it('should return new id per call', function() {
       var seen = {};
       var count = 100;
 
-      while(count--) {
+      while (count--) {
         var current = nextUid();
-        expect(current.match(/[\d\w]+/)).toBeTruthy();
+        expect(typeof current).toBe('number');
         expect(seen[current]).toBeFalsy();
         seen[current] = true;
       }
@@ -176,3 +178,5 @@ describe('utils', function() {
 
 
 });
+
+})();

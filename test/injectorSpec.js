@@ -1,9 +1,11 @@
 'use strict';
 
-var utils = require('../lib/utils'),
-  di = require('../lib/ng-di'),
-  mock = require('../mock'),
-  injectorMod = require('../lib/injector');
+(function(){
+
+const utils = require('../lib/utils');
+const di = require('../lib/ng-di');
+const mock = require('../mock');
+const injectorMod = require('../lib/injector');
 
 
 describe('injector', function() {
@@ -811,3 +813,6 @@ describe('injector', function() {
     });
   });
 });
+
+
+})();
