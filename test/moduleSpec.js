@@ -132,10 +132,10 @@ fdescribe('module loader', function() {
   });
 
 
-  it('should complain of no module', function() {
+  fit('should complain of no module', function() {
     expect(function() {
       di.module('dontExist');
-    }).toThrowError('No module: Module \'dontExist\' is not available! You either misspelled the module name ' +
+    }).toThrowMinErr('$injector', 'nomod', 'Module \'dontExist\' is not available! You either misspelled the module name ' +
             'or forgot to load it. If registering a module ensure that you specify the dependencies as the second ' +
             'argument.');
   });

@@ -19,9 +19,6 @@ const GLOBAL = typeof globalThis !== 'undefined' ? globalThis :
     if (typeof require !== 'undefined'){
       exports = require('./mock');
     }
-    else {
-      window.mock = exports;
-    }
     di = window.di;
     utils = window.di.utils;
   }
@@ -29,6 +26,9 @@ const GLOBAL = typeof globalThis !== 'undefined' ? globalThis :
     di = require('./../lib/ng-di');
     utils = require('./../lib/utils');
   }
+  
+  var mock = exports;
+  di.mock = mock;
   
 
   var currentSpec = null,
@@ -38,12 +38,12 @@ const GLOBAL = typeof globalThis !== 'undefined' ? globalThis :
         return !!currentSpec;
       };
 
-  exports.$$annotate = di.injector.$$annotate;
+  mock.$$annotate = di.injector.$$annotate;
   di.injector.$$annotate = function(fn) {
     if (typeof fn === 'function' && !fn.$inject) {
       annotatedFunctions.push(fn);
     }
-    return exports.$$annotate.apply(this, arguments);
+    return mock.$$annotate.apply(this, arguments);
   };
 
   /**
@@ -66,7 +66,7 @@ const GLOBAL = typeof globalThis !== 'undefined' ? globalThis :
    *        {@link auto.$provide $provide}.value, the key being the string name (or token) to associate
    *        with the value on the injector.
    */
-  var module = exports.module = function() {
+  var module = mock.module = function() {
     var moduleFns = Array.prototype.slice.call(arguments, 0);
     return wasInjectorCreated() ? workFn() : workFn;
     /////////////////////
@@ -319,7 +319,7 @@ const GLOBAL = typeof globalThis !== 'undefined' ? globalThis :
   };
   ErrorAddingDeclarationLocationStack.prototype = Error.prototype;
 
-  exports.inject = function() {
+  mock.inject = function() {
     var blockFns = Array.prototype.slice.call(arguments, 0);
     var errorForStack = new Error('Declaration Location');
     // IE10+ and PhanthomJS do not set stack trace information, until the error is thrown
@@ -372,7 +372,7 @@ const GLOBAL = typeof globalThis !== 'undefined' ? globalThis :
   };
 
 
-  exports.inject.strictDi = function(value) {
+  mock.inject.strictDi = function(value) {
     value = arguments.length ? !!value : true;
     return wasInjectorCreated() ? workFn() : workFn;
 

@@ -15,6 +15,7 @@ module.exports = function(config){
       // JASMINE_ADAPTER,
       'lib/browser.js',
       'lib/utils.js',
+      'lib/minErr.js',
       'lib/module.js',
       'lib/hashmap.js',
       'lib/injector.js',
