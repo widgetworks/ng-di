@@ -31,9 +31,10 @@
 
       function message() {
         return 'Expected ' + wording.inputType + (isNot ? ' not' : '') + ' to ' +
-            wording.expectedAction + ' ' + namespace + 'MinErr(\'' + code + '\')' +
-            (contentRegex ? ' matching ' + contentRegex.toString() : '') +
-            (!exception ? '.' : ', but it ' + wording.actualAction + ': ' + exceptionMessage);
+            wording.expectedAction + ' "' + namespace + 'MinErr(\'' + code + '\')"' +
+            (contentRegex ? ' matching \n\n' + contentRegex.toString() + '\n' : '') +
+            (!exception ? '.' : '\nbut it ' + wording.actualAction + ': \n\n' + exceptionMessage) +
+            '\n';
       }
     }
   }

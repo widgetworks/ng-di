@@ -8,7 +8,7 @@ angular.js 1.6.10 `test/loaderSpec.js`
 var setupModuleLoader = require('../lib/module').setupModuleLoader;
 var di = require('../lib/ng-di');
 
-fdescribe('module loader', function() {
+describe('module loader', function() {
   var window;
   var createInjector;
 
@@ -132,7 +132,7 @@ fdescribe('module loader', function() {
   });
 
 
-  fit('should complain of no module', function() {
+  it('should complain of no module', function() {
     expect(function() {
       di.module('dontExist');
     }).toThrowMinErr('$injector', 'nomod', 'Module \'dontExist\' is not available! You either misspelled the module name ' +
@@ -143,7 +143,7 @@ fdescribe('module loader', function() {
   it('should complain if a module is called "hasOwnProperty', function() {
     expect(function() {
       di.module('hasOwnProperty', []);
-    }).toThrowError('badname: \'hasOwnProperty\' is not a valid module name');
+    }).toThrowMinErr('di','badname', 'hasOwnProperty is not a valid module name');
   });
 
   describe('Module', function() {
@@ -166,7 +166,7 @@ fdescribe('module loader', function() {
       it('should throw if the parameter is not an object', function() {
         expect(function() {
           theModule.info('some text');
-        }).toThrowError('aobj: Argument \'some text\' must be an object');
+        }).toThrowMinErr('di', 'aobj');
       });
 
       it('should completely replace the previous info object', function() {
