@@ -13,17 +13,29 @@ module.exports = function(config){
     files: [
       // JASMINE,
       // JASMINE_ADAPTER,
-      'lib/browser.js',
-      'lib/utils.js',
-      'lib/minErr.js',
-      'lib/module.js',
-      'lib/hashmap.js',
-      'lib/injector.js',
-      'lib/ng-di.js',
+      // 'lib/utils.js',
+      // 'lib/minErr.js',
+      // 'lib/module.js',
+      // 'lib/hashmap.js',
+      // 'lib/injector.js',
+      {
+        pattern: 'lib/index.js',
+        type: 'module'
+      },
+      {
+        // pattern: 'mock/index.js',
+        pattern: 'dist/mock.js',
+        type: 'module'
+      },
     
-      'mock/index.js',
       'test/spec_helper.js',
-      'test/*.js'
+        
+      // 'test/*.js',
+      {
+        // pattern: 'test/*.js',
+        pattern: 'test/hashmap.js',
+        type: 'module'
+      },
     ],
     
     

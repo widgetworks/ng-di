@@ -1,9 +1,12 @@
 'use strict';
 
-const utils = require('../lib/utils');
-const hashmap = require('../lib/hashmap');
-const NgMapShim = hashmap.NgMap;
-const hashKey = hashmap.hashKey;
+// const utils = require('../lib/utils');
+// const hashmap = require('../lib/hashmap');
+import * as utils from '../lib/utils';
+import {
+  NgMap as NgMapShim,
+  hashKey,
+} from "../lib/hashmap";
 
 
 describe('hashmap', function() {

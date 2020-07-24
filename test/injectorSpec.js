@@ -1,13 +1,13 @@
-'use strict';
+import './spec_helper';
 
-(function(){
+import di from "../lib/index";
+import mock from "../mock";
+import injectorMod from "../lib/injector";
 
-const di = require('../lib/ng-di');
-const mock = require('../mock');
-const injectorMod = require('../lib/injector');
+import * as utils from "../lib/utils";
+
 var angularModule = di.module;
 
-const utils = require('../lib/utils');
 const extend = utils.extend;
 const valueFn = utils.valueFn;
 
@@ -504,11 +504,11 @@ describe('injector', function() {
 
 
     it('should publish annotate API', function() {
-      expect(di.mock.$$annotate).toBe(annotate);
-      spyOn(di.mock, '$$annotate').and.callThrough();
+      expect(mock.$$annotate).toBe(injectorMod.annotate);
+      spyOn(mock, '$$annotate').and.callThrough();
       function fn() {}
       injector.annotate(fn);
-      expect(di.mock.$$annotate).toHaveBeenCalledWith(fn);
+      expect(mock.$$annotate).toHaveBeenCalledWith(fn);
     });
     
   });
@@ -1214,6 +1214,3 @@ describe('injector', function() {
   });
   
 });
-
-
-})();

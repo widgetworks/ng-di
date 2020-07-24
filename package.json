@@ -29,30 +29,38 @@
       "url": "https://github.com/jmendiara/ng-di/blob/master/LICENSE-MIT"
     }
   ],
-  "main": "lib/ng-di",
+  "main": "dist/ng-di",
   "engines": {
     "node": ">= 0.8.0"
   },
   "scripts": {
-    "build": "grunt build",
-    "test": "karma start --single-run=true ./tools/karma.conf.js",
-    "xtest": "grunt test"
+    "build": "npm run clean && npm run build:dist",
+    "build:dist": "rollup -c",
+    "build:watch": "npm-run-all --parallel \"rollup -- --watch\"",
+    "clean": "rimraf dist",
+    "test": "karma start ./tools/karma.conf.js --single-run=true"
   },
   "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@types/jest": "^26.0.7",
+    "babel-jest": "^26.1.0",
     "grunt": "~1.2.1",
     "grunt-contrib-clean": "2.0.0",
     "grunt-contrib-compress": "1.6.0",
     "grunt-contrib-concat": "~1.0.1",
     "grunt-contrib-copy": "~1.0.0",
     "grunt-contrib-uglify": "~4.0.1",
-    "grunt-jasmine-node": "0.3.1",
-    "grunt-karma": "~4.0.0",
     "jasmine-core": "^3.5.0",
     "jasmine-node": "3.0.0",
     "jasmine-reporters": "^2.3.2",
+    "jest": "^26.1.0",
     "karma": "~5.1.0",
     "karma-chrome-launcher": "^3.1.0",
     "karma-jasmine": "^3.3.1",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.23.0",
     "shelljs": "0.1.2"
   },
   "disabledDevDependencies": {

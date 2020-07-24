@@ -7,8 +7,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-compress');
-  grunt.loadNpmTasks('grunt-karma');
-  grunt.loadNpmTasks('grunt-jasmine-node');
 
 
   var files = grunt.file.readJSON('tools/files.json'),
@@ -22,22 +20,6 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-
-    jasmine_node: {
-      specNameMatcher: "spec", // load only specs containing specNameMatcher
-      projectRoot: "./test",
-      requirejs: false,
-      forceExit: true,
-      useHelpers: true,
-      failFast: true,
-    },
-
-    karma: {
-      unit: {
-        configFile: 'tools/karma.conf.js',
-        singleRun: true
-      }
-    },
 
     clean: {dist: ['dist']},
 

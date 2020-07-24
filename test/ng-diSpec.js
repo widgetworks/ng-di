@@ -1,5 +1,6 @@
-'use strict';
-var di = require('../lib/ng-di');
+import './spec_helper';
+
+import di from "../lib/index";
 
 describe('di', function(){
   it('should be defined', function (){
@@ -14,9 +15,9 @@ describe('di', function(){
   it('should access annotate function as starting point', function (){
     expect(di.annotate).toBeFunction();
   })
-  if (typeof window !== 'undefined'){
-    it('should be in window.di while in browser mode', function (){
-      expect(window.di).toBe(di);
-    })
-  }
+  // if (typeof window !== 'undefined'){
+  //   it('should be in window.di while in browser mode', function (){
+  //     expect(window.di).toBe(di);
+  //   })
+  // }
 });

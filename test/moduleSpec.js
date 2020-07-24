@@ -1,13 +1,11 @@
-'use strict';
+import './spec_helper';
+
+import di from "../lib/index";
+import { setupModuleLoader } from "../lib/module";
 
 /*
 angular.js 1.6.10 `test/loaderSpec.js`
 */
-(function(){
-
-var setupModuleLoader = require('../lib/module').setupModuleLoader;
-var di = require('../lib/ng-di');
-
 describe('module loader', function() {
   var window;
   var createInjector;
@@ -179,6 +177,3 @@ describe('module loader', function() {
   
   
 });
-
-
-})();
