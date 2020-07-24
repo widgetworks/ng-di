@@ -5,7 +5,7 @@
     "lib/module.js",
     "lib/hashmap.js",
     "lib/injector.js",
-    "lib/ng-di.js"
+    "lib/index.js"
   ],
   "browser": [
     "lib/browser.js"
